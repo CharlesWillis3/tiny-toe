@@ -92,6 +92,10 @@ TinyToeCore::GameState TinyToeCore::CalculateGameState(BoardDescription board_de
 		for (uint8_t shift = 0; shift <= 16; shift += 2)
 		{
 			test_cell = uint8_t((board_desc >> shift) & board_mask);
+			if (CellState(test_cell) == CellState::UNDEFINED)
+			{
+				return GameState::UNDEFINED;
+			}
 			if (CellState(test_cell) == CellState::EMPTY)
 			{
 				return GameState::IP;

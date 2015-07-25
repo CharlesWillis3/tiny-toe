@@ -1,0 +1,14 @@
+﻿Build started 7/19/2015 9:29:07 PM.
+     1>Project "D:\gh\tiny-toe\TinyToe\TinyToe.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Yu"stdafx.h" /Fp"Debug\TinyToe.pch" /Fo"Debug\\" /Fd"Debug\TinyToe.pdb" /Gd /TP /analyze- /errorReport:prompt TinyToeCore.cpp
+         TinyToeCore.cpp
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\Lib.exe /OUT:"D:\gh\tiny-toe\TinyToe\Debug\TinyToe.lib" /NOLOGO Debug\stdafx.obj
+         Debug\TinyToeCore.obj
+         TinyToe.vcxproj -> D:\gh\tiny-toe\TinyToe\Debug\TinyToe.lib
+     1>Done Building Project "D:\gh\tiny-toe\TinyToe\TinyToe.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.27
