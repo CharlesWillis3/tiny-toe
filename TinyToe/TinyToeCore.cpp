@@ -68,12 +68,15 @@ TinyToeCore::GameState TinyToeCore::CalculateGameState(BoardDescription board_de
 	if (board_desc > MAX_BOARD) return GameState::UNDEFINED;
 
 	//test for win states
-	for each (auto i in m_GameStateMap)
+	
+	switch (auto game_state = _CheckForWins(board_desc))
 	{
-		if ((board_desc & i.first) == i.first)
-		{
-			return i.second;
-		}
+	case GameState::OWIN:
+	case GameState::XWIN:
+		return game_state;
+		break;
+	default:
+		break;
 	}
 
 	//test for tie or in-progress state
@@ -104,4 +107,17 @@ TinyToeCore::GameState TinyToeCore::CalculateGameState(BoardDescription board_de
 	}
 
 	return GameState::TIE;
+}
+
+TinyToeCore::GameState TinyToe::TinyToeCore::_CheckForWins(BoardDescription board_desc)
+{
+	for each (auto i in m_GameStateMap)
+	{
+		if ((board_desc & i.first) == i.first)
+		{
+			return i.second;
+		}
+	}
+
+	return GameState::UNDEFINED;
 }
