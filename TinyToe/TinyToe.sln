@@ -5,6 +5,11 @@ VisualStudioVersion = 14.0.22823.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TinyToe", "TinyToe.vcxproj", "{D3B411B3-3BB5-4891-93BA-9EB31935ED5D}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TinyToeTests", "TinyToeTests\TinyToeTests.vcxproj", "{714445E4-D59D-4222-A0BF-0AE240BE311D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D3B411B3-3BB5-4891-93BA-9EB31935ED5D} = {D3B411B3-3BB5-4891-93BA-9EB31935ED5D}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -15,6 +20,10 @@ Global
 		{D3B411B3-3BB5-4891-93BA-9EB31935ED5D}.Debug|x86.Build.0 = Debug|Win32
 		{D3B411B3-3BB5-4891-93BA-9EB31935ED5D}.Release|x86.ActiveCfg = Release|Win32
 		{D3B411B3-3BB5-4891-93BA-9EB31935ED5D}.Release|x86.Build.0 = Release|Win32
+		{714445E4-D59D-4222-A0BF-0AE240BE311D}.Debug|x86.ActiveCfg = Debug|Win32
+		{714445E4-D59D-4222-A0BF-0AE240BE311D}.Debug|x86.Build.0 = Debug|Win32
+		{714445E4-D59D-4222-A0BF-0AE240BE311D}.Release|x86.ActiveCfg = Release|Win32
+		{714445E4-D59D-4222-A0BF-0AE240BE311D}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
