@@ -39,6 +39,6 @@ ipch/
 *.ncb
 *.sbr
 *.log
-*.sdf
+*.*sdf
 *.*~
 

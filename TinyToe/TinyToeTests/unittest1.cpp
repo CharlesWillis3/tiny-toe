@@ -2,55 +2,61 @@
 #include "CppUnitTest.h"
 
 #include "..\stdafx.h"
-#include "..\TinyToeCore.cpp"
+#include "..\Core.cpp"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace TinyToeTests
-{		
-	
+{
+
 	TEST_CLASS(CoreTests)
 	{
 
 	public:
-		
-		TEST_CLASS_INITIALIZE(InitTinyToeCore)
-		{
-			
-		}
 
-		TEST_METHOD(Test_CheckForWinsReturnsCorrectStateForWinningBoard)
+		TEST_CLASS_INITIALIZE(InitCore)
 		{
-			auto test_map = TinyToeCore::WinStateMap();
-			test_map[TinyToeCore::GameState::XWIN] = std::vector<TinyToeCore::BoardDescription>{
-				0b00'01'00U
-			};
-			test_map[TinyToeCore::GameState::OWIN] = std::vector<TinyToeCore::BoardDescription>{
-				0b10'00'00U
-			};
-			
-			TinyToeCore::BoardDescription x_win_board = 0b00'01'10U;
-			TinyToeCore::BoardDescription o_win_board = 0b10'10'01U;
-
-			Assert::IsTrue(TinyToeCore::GameState::XWIN == _CheckForWins(x_win_board, test_map));
-			Assert::IsTrue(TinyToeCore::GameState::OWIN == _CheckForWins(o_win_board, test_map));
-			Assert::IsFalse(TinyToeCore::GameState::XWIN == _CheckForWins(o_win_board, test_map));
-			Assert::IsFalse(TinyToeCore::GameState::OWIN == _CheckForWins(x_win_board, test_map));
 
 		}
 
-		TEST_METHOD(Test_CheckForWinsReturnsUndefinedForBoardsWithMultipleWins)
+		TEST_METHOD(XRowsReturnXWIN)
 		{
-			auto test_map = TinyToeCore::WinStateMap();
-			test_map[TinyToeCore::GameState::XWIN] = std::vector<TinyToeCore::BoardDescription>{
-				0b00
-			};
-			test_map[TinyToeCore::GameState::OWIN] = std::vector<TinyToeCore::BoardDescription>{
-				0b00
+			auto test_map = Core::WinStateMap();
+
+			test_map[Core::GameState::XWIN] = std::vector<Core::DescriptionPair>{
+				std::make_pair(ROW_0_MSK, X_ROW_0),
+				std::make_pair(ROW_1_MSK, X_ROW_1),
+				std::make_pair(ROW_2_MSK, X_ROW_2)
 			};
 
-			TinyToeCore::BoardDescription bad_win_board = 0b00;
-			Assert::IsTrue(TinyToeCore::GameState::UNDEFINED == _CheckForWins(bad_win_board, test_map));
+			BoardDescription x_row_0_board = 0b010101'101011'101111;
+			BoardDescription x_row_1_board = 0b101011'010101'111010;
+			BoardDescription x_row_2_board = 0b101011'101011'010101;
+
+			Assert::IsTrue(Core::GameState::XWIN == _CheckForWins(x_row_0_board, test_map));
+			Assert::IsTrue(Core::GameState::XWIN == _CheckForWins(x_row_1_board, test_map));
+			Assert::IsTrue(Core::GameState::XWIN == _CheckForWins(x_row_2_board, test_map));
+
+		}
+
+		TEST_METHOD(XColsReturnXWIN)
+		{
+			auto test_map = Core::WinStateMap();
+
+			test_map[Core::GameState::XWIN] = std::vector<Core::DescriptionPair>{
+				std::make_pair(COL_0_MSK, X_COL_0),
+				std::make_pair(COL_1_MSK, X_COL_1),
+				std::make_pair(COL_2_MSK, X_COL_2)
+			};
+
+			BoardDescription x_col_0_board = 0b010111'011011'011111;
+			BoardDescription x_col_1_board = 0b100111'010101'111010;
+			BoardDescription x_col_2_board = 0b101001'101001'010101;
+
+			Assert::IsTrue(Core::GameState::OWIN == _CheckForWins(x_col_0_board, test_map));
+			Assert::IsTrue(Core::GameState::OWIN == _CheckForWins(x_col_1_board, test_map));
+			Assert::IsTrue(Core::GameState::OWIN == _CheckForWins(x_col_2_board, test_map));
+
 		}
 
 	};
