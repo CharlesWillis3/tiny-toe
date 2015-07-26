@@ -101,28 +101,6 @@ namespace
 Core::Core()
 {
 	m_GameStateMap = WinStateMap();
-	//m_GameStateMap[GameState::XWIN] = std::vector<BoardDescription>{
-	//	X_COL_0,
-	//	X_COL_1,
-	//	X_COL_2,
-	//	X_ROW_0,
-	//	X_ROW_1,
-	//	X_ROW_2,
-	//	X_DIG_0,
-	//	X_DIG_1
-	//};
-
-	//m_GameStateMap[GameState::OWIN] = std::vector<BoardDescription>{
-	//	O_COL_0,
-	//	O_COL_1,
-	//	O_COL_2,
-	//	O_ROW_0,
-	//	O_ROW_1,
-	//	O_ROW_2,
-	//	O_DIG_0,
-	//	O_DIG_1
-	//};
-
 }
 
 
