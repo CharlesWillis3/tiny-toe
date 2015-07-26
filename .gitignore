@@ -30,3 +30,15 @@
 Debug/
 Release/
 .vs/
+bin/
+obj/
+ipch/
+
+*.suo
+*.user
+*.ncb
+*.sbr
+*.log
+*.sdf
+*.*~
+

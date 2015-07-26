@@ -27,15 +27,12 @@ namespace TinyToe
 		};
 
 		typedef uint32_t BoardDescription;
-		typedef std::map<BoardDescription, GameState> BoardDescriptionToGameStateMap;
+		typedef std::map<GameState, std::vector<BoardDescription>> WinStateMap;
 
 		GameState CalculateGameState(BoardDescription board_desc);
 
-	protected:
-		GameState _CheckForWins(BoardDescription board_desc);
-
 	private:
-		BoardDescriptionToGameStateMap m_GameStateMap;
+		WinStateMap m_GameStateMap;
 	};
 }
 
