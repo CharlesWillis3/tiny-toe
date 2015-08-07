@@ -29,4 +29,17 @@
 
 Debug/
 Release/
+TestResults/
 .vs/
+bin/
+obj/
+ipch/
+
+*.suo
+*.user
+*.ncb
+*.sbr
+*.log
+*.*sdf
+*.*~
+
